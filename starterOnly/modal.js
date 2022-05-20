@@ -25,32 +25,32 @@ const formData = document.querySelectorAll(".formData");
 //     check: "Vous devez vérifier que vous acceptez les termes et conditions.",
 // }
 
-// //Booleans functions
-// function isCorrectLength(input, min) {
-//     return input.value.trim().length >= min;
-// }
-// function isValidMail(email) {
-//     if (email.value.length === 0) {
-//         return false
-//     }
-//     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
-// }
-// function isCorrectDate(date) {
-//     if (date.value.length === 0) {
-//         return false
-//     }
-//     return /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(date.value)
-// }
-// function isNumber(input) {
-//     return input.value !== '' ? !isNaN(input.value) : false
-//
-// }
-// function isCheckedRadio(inputs) {
-//     return Array.from(inputs).some(input => input.checked);
-// }
-// function isCheckedInput(input) {
-//     return input.checked
-// }
+//Booleans functions
+function isCorrectLength(input, min) {
+    return input.value.trim().length >= min;
+}
+function isValidMail(email) {
+    if (email.value.length === 0) {
+        return false
+    }
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)
+}
+function isCorrectDate(date) {
+    if (date.value.length === 0) {
+        return false
+    }
+    return /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/.test(date.value)
+}
+function isNumber(input) {
+    return input.value !== '' ? !isNaN(input.value) : false
+
+}
+function isCheckedRadio(inputs) {
+    return Array.from(inputs).some(input => input.checked);
+}
+function isCheckedInput(input) {
+    return input.checked
+}
 
 // Action functions
 function launchModal() {
@@ -90,49 +90,49 @@ document.addEventListener('click', el => {
         // hideSuccessMessage()
     }
 })
-//
-// modalBg.addEventListener('submit', e => {
-//     e.preventDefault();
-//     clearErrorMessage();
-//     let flag = false;
-//     const name = e.target.querySelector('#first'),
-//           lastname = e.target.querySelector('#last'),
-//           email = e.target.querySelector('#email'),
-//           birthday = e.target.querySelector('#birthdate'),
-//           quantity = e.target.querySelector('#quantity'),
-//           locationInputs = e.target.querySelectorAll('input[name="location"]'),
-//           conditionInput = e.target.querySelector('#checkbox1')
-//     if (!isCorrectLength(name,2)){
-//         showErrorMessage(name, errorMsg.name)
-//         flag = true
-//     }
-//     if (!isCorrectLength(lastname,2)) {
-//         showErrorMessage(lastname, errorMsg.lastname)
-//         flag = true
-//     }
-//     if (!isValidMail(email)) {
-//         showErrorMessage(email, errorMsg.email)
-//         flag = true
-//     }
-//     if (!isCorrectDate(birthday)) {
-//         showErrorMessage(birthday, errorMsg.birthday)
-//         flag = true
-//     }
-//     if (!isNumber(quantity)) {
-//         showErrorMessage(quantity, errorMsg.quantity)
-//         flag = true
-//     }
-//     if (!isCheckedRadio(locationInputs)) {
-//         showErrorMessage(locationInputs, errorMsg.radio)
-//         flag = true
-//     }
-//     if (!isCheckedInput(conditionInput)) {
-//         showErrorMessage(conditionInput, errorMsg.check)
-//         flag = true
-//     }
-//     if (!flag) {
-//         e.target.style.display = "none"
-//         e.target.reset()
-//         showSuccessMessage()
-//     }
-// })
+
+modalBg.addEventListener('submit', e => {
+    e.preventDefault();
+    // clearErrorMessage();
+    let flag = false;
+    const name = e.target.querySelector('#first'),
+          lastname = e.target.querySelector('#last'),
+          email = e.target.querySelector('#email'),
+          birthday = e.target.querySelector('#birthdate'),
+          quantity = e.target.querySelector('#quantity'),
+          locationInputs = e.target.querySelectorAll('input[name="location"]'),
+          conditionInput = e.target.querySelector('#checkbox1')
+    if (!isCorrectLength(name,2)){
+        // showErrorMessage(name, errorMsg.name)
+        // flag = true
+    }
+    if (!isCorrectLength(lastname,2)) {
+        // showErrorMessage(lastname, errorMsg.lastname)
+        // flag = true
+    }
+    if (!isValidMail(email)) {
+        // showErrorMessage(email, errorMsg.email)
+        // flag = true
+    }
+    if (!isCorrectDate(birthday)) {
+        // showErrorMessage(birthday, errorMsg.birthday)
+        // flag = true
+    }
+    if (!isNumber(quantity)) {
+        // showErrorMessage(quantity, errorMsg.quantity)
+        // flag = true
+    }
+    if (!isCheckedRadio(locationInputs)) {
+        // showErrorMessage(locationInputs, errorMsg.radio)
+        // flag = true
+    }
+    if (!isCheckedInput(conditionInput)) {
+        // showErrorMessage(conditionInput, errorMsg.check)
+        // flag = true
+    }
+    if (!flag) {
+        e.target.style.display = "none"
+        e.target.reset()
+        // showSuccessMessage()
+    }
+})
