@@ -15,15 +15,15 @@ const formData = document.querySelectorAll(".formData");
 // const successMsg = document.querySelector(".success")
 
 //
-// const errorMsg = {
-//     name: "Veuillez entrer 2 caractères ou plus pour le champ du prenom.",
-//     lastname: "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
-//     email: "Veuillez entrer mail valide.",
-//     birthday: "Vous devez entrer votre date de naissance.",
-//     quantity: "Veuillez entrer un nombre valide.",
-//     radio: "Vous devez choisir une option.",
-//     check: "Vous devez vérifier que vous acceptez les termes et conditions.",
-// }
+const errorMsg = {
+    name: "Veuillez entrer 2 caractères ou plus pour le champ du prenom.",
+    lastname: "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
+    email: "Veuillez entrer mail valide.",
+    birthday: "Vous devez entrer votre date de naissance.",
+    quantity: "Veuillez entrer un nombre valide.",
+    radio: "Vous devez choisir une option.",
+    check: "Vous devez vérifier que vous acceptez les termes et conditions.",
+}
 
 //Booleans functions
 function isCorrectLength(input, min) {
@@ -63,16 +63,16 @@ function closeModal() {
     modalForm.style.display = "none"
     document.body.style.overflow = "auto"
 }
-// function showErrorMessage(el, msg) {
-//     let error = document.createElement("div");
-//     error.classList.add("error");
-//     error.setAttribute('style', 'color: tomato; font-size: 0.8rem; padding: 5px 10px;');
-//     error.innerHTML = msg;
-//     el.parentElement ? el.parentElement.appendChild(error) : el[0].parentElement.appendChild(error);
-// }
-// function clearErrorMessage() {
-//     document.querySelectorAll(".error").forEach(el => el.remove());
-// }
+function showErrorMessage(el, msg) {
+    let error = document.createElement("div");
+    error.classList.add("error");
+    error.setAttribute('style', 'color: tomato; font-size: 0.8rem; padding: 5px 10px;');
+    error.innerHTML = msg;
+    el.parentElement ? el.parentElement.appendChild(error) : el[0].parentElement.appendChild(error);
+}
+function clearErrorMessage() {
+    document.querySelectorAll(".error").forEach(el => el.remove());
+}
 // function showSuccessMessage() {
 //     successMsg.style.display = "block";
 // }
@@ -93,7 +93,7 @@ document.addEventListener('click', el => {
 
 modalBg.addEventListener('submit', e => {
     e.preventDefault();
-    // clearErrorMessage();
+    clearErrorMessage();
     let flag = false;
     const name = e.target.querySelector('#first'),
           lastname = e.target.querySelector('#last'),
@@ -103,32 +103,32 @@ modalBg.addEventListener('submit', e => {
           locationInputs = e.target.querySelectorAll('input[name="location"]'),
           conditionInput = e.target.querySelector('#checkbox1')
     if (!isCorrectLength(name,2)){
-        // showErrorMessage(name, errorMsg.name)
-        // flag = true
+        showErrorMessage(name, errorMsg.name)
+        flag = true
     }
     if (!isCorrectLength(lastname,2)) {
-        // showErrorMessage(lastname, errorMsg.lastname)
-        // flag = true
+        showErrorMessage(lastname, errorMsg.lastname)
+        flag = true
     }
     if (!isValidMail(email)) {
-        // showErrorMessage(email, errorMsg.email)
-        // flag = true
+        showErrorMessage(email, errorMsg.email)
+        flag = true
     }
     if (!isCorrectDate(birthday)) {
-        // showErrorMessage(birthday, errorMsg.birthday)
-        // flag = true
+        showErrorMessage(birthday, errorMsg.birthday)
+        flag = true
     }
     if (!isNumber(quantity)) {
-        // showErrorMessage(quantity, errorMsg.quantity)
-        // flag = true
+        showErrorMessage(quantity, errorMsg.quantity)
+        flag = true
     }
     if (!isCheckedRadio(locationInputs)) {
-        // showErrorMessage(locationInputs, errorMsg.radio)
-        // flag = true
+        showErrorMessage(locationInputs, errorMsg.radio)
+        flag = true
     }
     if (!isCheckedInput(conditionInput)) {
-        // showErrorMessage(conditionInput, errorMsg.check)
-        // flag = true
+        showErrorMessage(conditionInput, errorMsg.check)
+        flag = true
     }
     if (!flag) {
         e.target.style.display = "none"
