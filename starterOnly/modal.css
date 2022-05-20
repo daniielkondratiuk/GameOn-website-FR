@@ -92,15 +92,6 @@ img {
 
 
 
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -527,3 +518,33 @@ footer {
   }
 }
 
+@media screen and (max-width: 540px) {
+  .topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+  }
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .header-logo {
+    width: 200px;
+  }
+  .header-logo img {
+    width: 100%;
+  }
+  .bground {
+    background-color: #fff;
+  }
+}
+
+.success {
+  display: none;
+}
+.success p {
+  text-align: center;
+  padding: 300px 0;
+}
