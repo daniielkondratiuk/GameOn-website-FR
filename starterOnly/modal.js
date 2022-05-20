@@ -12,7 +12,7 @@ const modalForm = document.querySelector('#reservation-form');
 const modalBg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-// const successMsg = document.querySelector(".success")
+const successMsg = document.querySelector(".success")
 
 //
 const errorMsg = {
@@ -73,21 +73,20 @@ function showErrorMessage(el, msg) {
 function clearErrorMessage() {
     document.querySelectorAll(".error").forEach(el => el.remove());
 }
-// function showSuccessMessage() {
-//     successMsg.style.display = "block";
-// }
-// function hideSuccessMessage() {
-//     successMsg.style.display = "none";
-// }
-// function validate() {}
-//
-//
+function showSuccessMessage() {
+    successMsg.style.display = "block";
+}
+function hideSuccessMessage() {
+    successMsg.style.display = "none";
+}
+function validate() {}
+
 //Event listeners
 document.addEventListener('click', el => {
     if (el.target.classList.contains('modal-btn')) launchModal()
     if (el.target.classList.contains('close') || el.target.classList.contains('success-close')) {
         closeModal()
-        // hideSuccessMessage()
+        hideSuccessMessage()
     }
 })
 
@@ -133,6 +132,6 @@ modalBg.addEventListener('submit', e => {
     if (!flag) {
         e.target.style.display = "none"
         e.target.reset()
-        // showSuccessMessage()
+        showSuccessMessage()
     }
 })
