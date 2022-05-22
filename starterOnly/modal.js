@@ -1,17 +1,11 @@
 function editNav() {
     const x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive"
-    } else {
-        x.className = "topnav"
-    }
+    x.classList.contains('responsive') ? x.classList.remove('responsive') : x.classList.add('responsive');
 }
 
 // DOM Elements
 const modalForm = document.querySelector('#reservation-form');
 const modalBg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 const successMsg = document.querySelector(".success")
 
 //
@@ -68,6 +62,10 @@ function showErrorMessage(el, msg) {
     error.classList.add("error");
     error.setAttribute('style', 'color: tomato; font-size: 0.8rem; padding: 5px 10px;');
     error.innerHTML = msg;
+    if(el.style?.border !== undefined) {
+        el.style.border = "2px solid tomato";
+        setTimeout(() => {el.style.border = "none";}, 2000);
+    }
     el.parentElement ? el.parentElement.appendChild(error) : el[0].parentElement.appendChild(error);
 }
 function clearErrorMessage() {
@@ -80,12 +78,23 @@ function hideSuccessMessage() {
     successMsg.style.display = "none";
 }
 function validate() {}
+function addClassFixed(selector) {
+    document.querySelector(selector).classList.add("fixed");
+}
+function removeClassFixed(selector) {
+    document.querySelector(selector).classList.remove("fixed");
+}
 
 //Event listeners
 document.addEventListener('click', el => {
-    if (el.target.classList.contains('modal-btn')) launchModal()
+    if (el.target.classList.contains('modal-btn')) {
+        launchModal()
+        addClassFixed('.topnav')
+    }
     if (el.target.classList.contains('close') || el.target.classList.contains('success-close')) {
         closeModal()
+        removeClassFixed('.topnav')
+        clearErrorMessage()
         hideSuccessMessage()
     }
 })
